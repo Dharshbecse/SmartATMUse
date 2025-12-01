@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM PIN Entry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        body {
+    background: #0a1535;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.atm-screen {
+    background: #1b2b55;
+    border: 3px solid #4da3ff;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #003d7a;
+}
+
+.atm-screen h2,h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.pin-input {
+    width: 80%;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    background: #e6e6e6;
+    outline: none;
+    letter-spacing: 5px;
+}
+
+.btn {
+    margin-top: 20px;
+    width: 90%;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background: #4da3ff;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #1d7ee8;
+}
+
+    </style>
+
+<div class="atm-screen">
+    <h1>பேங்க் ஆஃப் பைத்தான்</h2>
+<h2>PINஐ உள்ளிடவும்</h2>
+<input id="pinInput" type="password" maxlength="4" class="pin-input" placeholder="••••">
+<button class="btn" onclick="checkPin()">சமர்ப்பி</button>
+
+<p id="error" style="color:red; display:none;">தவறான PIN</p>
+
+<script>
+function checkPin() {
+    // Read PIN from input field
+    const userPin = document.getElementById("pinInput").value;
+
+    // Replace this with your real server variable or hard-coded PIN
+    const correctPin = "{{ pin.Pin }}"; 
+
+    if (userPin === correctPin) {
+        // Redirect on success
+        window.location.href = "{% url 'depositT' %}"
+    } else {
+        // Show error message
+        document.getElementById("error").style.display = "block";
+        document.getElementById("pinInput").style.borderColor = "red";
+    }
+}
+</script>
+
+
+</body>
+</html>

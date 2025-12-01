@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Language Buttons</title>
+<style>
+  
+  .lang-btn {
+    padding: 12px 220px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-left:90%;
+    margin-top:5%;
+    font-align:center;
+  }
+
+  .english {
+    background-color: #007bff;
+    color: white;
+    padding-top:18px
+  }
+
+  .tamil {
+    background-color: #28a745;
+    color: white;
+    padding-left:230px;
+  }
+
+  .lang-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
+  }
+  #Welcome{
+    font-size: 30px;
+  
+    
+
+  }
+    body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+
+</style>
+</head>
+<body><center>
+    <div id="Welcome">
+<h1>WELCOME!</h1>
+<h4>  TO</h2>
+<h2>BANK OF PYTHON </h2></div></center>
+
+<div class="language-container">
+  <button class="lang-btn english" onclick="english()">English</button><br><h1>           </h1>
+  <button class="lang-btn tamil" onclick="tamil()">தமிழ்</button>
+</div>
+<script>
+  function english(){
+     window.location.href = "{% url 'transaction' %}"
+  }
+  function tamil(){
+     window.location.href = "{% url 'transactionT' %}"
+  }
+
+</script>
+
+</body>
+</html>

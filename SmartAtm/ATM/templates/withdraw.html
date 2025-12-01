@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    .container {
+         background: #1b2b55;
+    border: 3px solid #4da3ff;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #003d7a;}
+
+    
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #ffffffff;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        width: 100%;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    #msg {
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+</head>
+
+<body>
+ <h1>BANK OF PYTHON</h2>
+<div class="container">
+    <h1>ENTER AMOUNT</h1>
+    <input id="withdraw" type="number" placeholder="Enter a amount">
+    <button onclick="withdrawAmount()">CONFIRM</button>
+    <p id="msg"></p>
+</div>
+
+<script>
+function withdrawAmount() {
+    const amount = Number(document.getElementById("withdraw").value);
+    const msg = document.getElementById("msg");
+
+ if (amount <= 0) {
+    msg.textContent = "Please enter a valid amount.";
+    msg.style.color = "red";
+}
+
+else if (amount > 50000) {
+    msg.textContent = "Maximum withdraw amount is 50000.";
+    msg.style.color = "red";
+}
+
+else if (amount % 100 !== 0) {
+    msg.textContent = "Amount must be in multiples of 100.";
+    msg.style.color = "red";
+}
+
+else {
+    msg.textContent = "Thank you! Your transaction is complete please take your card.";
+    msg.style.color = "green";
+}
+
+}
+</script>
+
+</body>
+</html>

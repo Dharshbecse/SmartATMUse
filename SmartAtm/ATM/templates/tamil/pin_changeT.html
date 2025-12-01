@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PIN Change</title>
+
+    <style>
+          body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+        .container {
+           background: #1b2b55;
+    border: 3px solid #4da3ff;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #003d7a;}
+
+
+        h1 {
+            font-size: 22px;
+            color: #ffefefff;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #msg {
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+ <h1>பேங்க் ஆஃப் பைத்தான்</h2>
+<div class="container">
+    <h1>PIN மாற்றம்</h1>
+
+    <label>பழைய PIN</label><br>
+    <input type="password" id="old_pin"><br>
+
+    <label>புதிய PIN</label><br>
+    <input type="password" id="new_pin"><br>
+
+    <button onclick="pin_change()">சமர்ப்பி</button>
+
+    <p id="msg"></p>
+</div>
+<h1>{{pin_num.pin}}</h1>
+
+<script>
+function pin_change() {
+    const oldPinInput = document.getElementById("old_pin").value;
+    const newPinInput = document.getElementById("new_pin").value;
+    const msg = document.getElementById("msg");
+
+    // Django variable injected into JS
+    const correctOldPin = "{{ pin_num.Pin }}";
+
+
+    if (oldPinInput !== correctOldPin) {
+        msg.style.color = "red";
+        msg.textContent = "தவறான PIN !";
+    } else if (newPinInput.length !== 4) {
+        msg.style.color = "red";
+        msg.textContent = "New PIN must be 4 digits!";
+        
+    } else if(correctOldPin === newPinInput){
+        msg.textContent= "Already existed create new PIN";
+        msg.style.color="red";
+    }
+    
+    else {
+        msg.style.color = "green";
+        msg.textContent = "PIN changed successfully!";
+        // You can later add AJAX or form submission here
+    }
+}
+</script>
+
+</body>
+</html>

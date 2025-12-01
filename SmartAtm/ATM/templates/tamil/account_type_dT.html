@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Type Buttons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .account-btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .saving-btn {
+      background-color: #007bff;
+    }
+
+    .saving-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .current-btn {
+      background-color: #28a745;
+    }
+
+    .current-btn:hover {
+      background-color: #1e7e34;
+      transform: scale(1.05);
+    }
+        body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+    <h1>பேங்க் ஆஃப் பைத்தான்</h2>
+  <div class="button-container">
+    <button class="account-btn saving-btn" onclick="saving()">தற்போதைய கணக்கு</button>
+    <button class="account-btn current-btn" onclick="saving()">சேமிப்பு கணக்கு</button>
+  </div>
+  <script>
+    function saving(){
+      window.location.href = "{% url 'pin_num_dT' 1 %}"
+    }
+  </script>
+</body>
+</html>

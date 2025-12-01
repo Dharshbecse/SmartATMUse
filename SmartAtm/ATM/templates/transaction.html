@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATM Menu</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .atm-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 40px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .atm-button:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    .atm-button:active {
+      transform: translateY(0);
+      background-color: #003d80;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>BANK OF PYTHON</h2>
+  <h2>TRANSACTIONS</h1>
+  <div class="button-container">
+    
+    <button class="atm-button" onclick="withdraw()">WITHDRAW</button>
+    <button class="atm-button" onclick="transfer()">TRANSFER</button>
+    <button class="atm-button" onclick="pin()">PIN CHANGE</button>
+    <button class="atm-button" onclick="deposit()">DEPOSIT</button>
+  </div>
+
+  <footer>© 2025 ATM Interface</footer>
+  <script>
+     function withdraw(){
+    window.location.href = "{% url 'account_type' %}"
+  }
+    function pin(){
+    window.location.href = "{% url 'pins_change' 1 %}"
+  }
+   function deposit(){
+    window.location.href = "{% url 'account_type_d' %}"
+  }
+  
+   function transfer(){
+    window.location.href = "{% url 'pin_num_t' 1 %}"
+  }
+  </script>
+
+</body>
+</html>

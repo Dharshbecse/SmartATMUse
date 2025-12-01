@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Account</title>
+    <style>
+        body {
+      background: linear-gradient(135deg, #0a0f2c, #1e2a78);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+        .container {
+              background: #1b2b55;
+    border: 3px solid #4da3ff;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #003d7a;}
+
+
+        h3 {
+            margin-bottom: 20px;
+            color: #ffffffff;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+     <h1>பேங்க் ஆஃப் பைத்தான்</h2>
+    <div class="container">
+        <h3 id="account">பறிமாற்று கணக்கு எண்</h3>
+        <input id="inpu" placeholder="கணக்கு எண்ணை உள்ளிடு">
+        <br>
+        <button onclick="account()">சமர்ப்பி</button>
+    </div>
+
+    <script>
+        function account() {
+            const accountNumber = document.getElementById('inpu').value;
+            if(accountNumber < 1000000000000 && accountNumber >= 100000000000) {
+                // Assuming Django URL tag, pass the account number
+                window.location.href = "{% url 'transferT' %}"
+            } else {
+                alert("Please enter 12-digit account number");
+            }
+        }
+    </script>
+</body>
+</html>
